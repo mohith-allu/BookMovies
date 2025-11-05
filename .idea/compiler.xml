@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Shows" />
+        <module name="Theatre" />
+        <module name="BookingHistory" />
+        <module name="Users" />
+        <module name="Movies" />
+        <module name="ShowSeats" />
+        <module name="Seats" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="BookingHistory" options="-parameters" />
+      <module name="Movies" options="-parameters" />
+      <module name="Seats" options="-parameters" />
+      <module name="ShowSeats" options="-parameters" />
+      <module name="Shows" options="-parameters" />
+      <module name="Theatre" options="-parameters" />
+      <module name="Users" options="-parameters" />
+    </option>
+  </component>
+</project>

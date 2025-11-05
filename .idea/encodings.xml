@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/BookingHistory/BookingHistory/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Movies/Movies/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Seats/Seats/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ShowSeats/ShowSeats/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Shows/Shows/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Theatre/Theatre/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Users/Users/src/main/java" charset="UTF-8" />
+  </component>
+</project>

@@ -14,8 +14,8 @@ public class UsersExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(EmailAlreadyExistException.class)
     public ResponseEntity<Error> emailAlreadyExist(EmailAlreadyExistException exception, WebRequest request){
-        Error error=new Error(HttpStatus.IM_USED,exception.getMessage());
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+        Error error=new Error(HttpStatus.CONFLICT,exception.getMessage());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(error);
     }
 
     @ExceptionHandler(WrongCredentialsExceptions.class)

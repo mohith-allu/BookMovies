@@ -21,18 +21,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void registerUser(Users user) throws EmailAlreadyExistException {
+    public Users registerUser(Users user) throws EmailAlreadyExistException {
         if(repository.existsByEmail(user.getEmail())){
             throw new EmailAlreadyExistException("Email already taken");
         }
-        repository.save(user);
+        return repository.save(user);
     }
 
     @Override
-    public void deleteUser(Users user) throws WrongCredentialsExceptions {
+    public boolean deleteUser(Users user) throws WrongCredentialsExceptions {
         if(!repository.existsByEmailAndPassword(user.getEmail(), user.getPassword())){
             throw new WrongCredentialsExceptions("Entered credentials are wrong");
         }
         repository.deleteById(repository.findIdByEmail(user.getEmail()));
+        return true;
     }
 }

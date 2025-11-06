@@ -6,6 +6,6 @@ import com.bookMovies.model.Users;
 
 public interface UserService {
     boolean loginUser(Users user) throws WrongCredentialsExceptions;
-    void registerUser(Users user) throws EmailAlreadyExistException;
-    void deleteUser(Users user) throws WrongCredentialsExceptions;
+    Users registerUser(Users user) throws EmailAlreadyExistException;
+    boolean deleteUser(Users user) throws WrongCredentialsExceptions;
 }

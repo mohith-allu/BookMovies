@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/Shows/Shows/pom.xml" />
         <option value="$PROJECT_DIR$/ShowSeats/ShowSeats/pom.xml" />
         <option value="$PROJECT_DIR$/Theatre/Theatre/pom.xml" />
+        <option value="$PROJECT_DIR$/Eureka-Server/pom.xml" />
       </list>
     </option>
   </component>

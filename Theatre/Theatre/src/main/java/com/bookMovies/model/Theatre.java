@@ -15,7 +15,7 @@ public class Theatre {
     @Column(nullable = false)
     private String address;
 
-    private Double rating;
+    private Double rating=0.0;
 
     public Theatre() {
     }

@@ -11,10 +11,12 @@
         <module name="BookingHistory" />
         <module name="Users" />
         <module name="Movies" />
-        <module name="ShowSeats" />
         <module name="Seats" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ShowSeats" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

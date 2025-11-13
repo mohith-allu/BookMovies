@@ -1,12 +1,10 @@
 package com.bookMovies.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 @Entity
 public class Shows {
@@ -20,6 +18,10 @@ public class Shows {
     private LocalTime showTime;
     private LocalDate showDate;
     private int screenNumber;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "showId",referencedColumnName = "id")
+    private List<ShowSeats> showSeats;
 
     public Shows() {
     }

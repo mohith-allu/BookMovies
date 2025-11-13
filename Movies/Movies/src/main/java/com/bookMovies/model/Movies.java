@@ -15,7 +15,7 @@ public class Movies {
     private String title;
     private String genre;
     private int duration;
-    private Double rating;
+    private Double rating=0.0;
     private String certificate;
     private String langusge;
 

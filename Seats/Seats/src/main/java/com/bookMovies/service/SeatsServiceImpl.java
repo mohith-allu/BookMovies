@@ -1,5 +1,6 @@
 package com.bookMovies.service;
 
+import com.bookMovies.dto.SeatsRequest;
 import com.bookMovies.exception.WrongPairOfTheatreIdAndScreenNumberException;
 import com.bookMovies.model.Seats;
 import com.bookMovies.repository.SeatsRepository;
@@ -28,5 +29,14 @@ public class SeatsServiceImpl implements SeatsService{
             repository.deleteById(id);
         }
         return true;
+    }
+
+    @Override
+    public List<SeatsRequest> getSeatsByTheatreIdAndScreenNumber(Long theatreId, int screenNumber)
+                    throws WrongPairOfTheatreIdAndScreenNumberException{
+        if(!repository.existsByTheatreIdAndScreenNumber(theatreId,screenNumber)){
+            throw new WrongPairOfTheatreIdAndScreenNumberException("Theatre ID and screen number doesn't match");
+        }
+        return repository.getSeatsByTheatreIdAndScreenNumber(theatreId,screenNumber);
     }
 }

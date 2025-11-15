@@ -11,4 +11,5 @@ public interface MoviesService {
     boolean removeMovie(String title) throws MoviesNotFoundException;
     Movies updateMovie(Movies movie) throws MoviesNotFoundException;
     List<Movies> getAllMovies();
+    boolean isIdExist(Long id);
 }

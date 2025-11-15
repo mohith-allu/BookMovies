@@ -9,16 +9,23 @@ import org.springframework.web.context.request.WebRequest;
 
 @ControllerAdvice
 @ResponseStatus
-public class SeatsExceptionHandler {
-    @ExceptionHandler(WrongPairOfTheatreIdAndScreenNumberException.class)
-    public ResponseEntity<Error> wrongPairOfTheatreIdAndScreenNumber(WrongPairOfTheatreIdAndScreenNumberException exception
-                                                                                            , WebRequest request){
+public class ShowsExceptionHandler {
+
+    @ExceptionHandler(MovieIdDoesNotExistException.class)
+    public ResponseEntity<Error> movieIdDoesNotExist(MovieIdDoesNotExistException exception, WebRequest request){
         Error error=new Error(HttpStatus.NOT_FOUND, exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
     @ExceptionHandler(TheatreIdDoesNotExistException.class)
-    public ResponseEntity<Error> theatreDoesNotExist(TheatreIdDoesNotExistException exception,WebRequest request){
+    public ResponseEntity<Error> theatreIdDoesNotExist(TheatreIdDoesNotExistException exception,WebRequest request){
+        Error error=new Error(HttpStatus.NOT_FOUND, exception.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(WrongPairOfTheatreIdAndScreenNumberException.class)
+    public ResponseEntity<Error> wrongPairOfTheatreIdAndScreenNumber
+            (WrongPairOfTheatreIdAndScreenNumberException exception,WebRequest request){
         Error error=new Error(HttpStatus.NOT_FOUND, exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }

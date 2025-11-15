@@ -1,6 +1,8 @@
 package com.bookMovies.service;
 
+import com.bookMovies.client.TheatreServiceFeign;
 import com.bookMovies.dto.SeatsRequest;
+import com.bookMovies.exception.TheatreIdDoesNotExistException;
 import com.bookMovies.exception.WrongPairOfTheatreIdAndScreenNumberException;
 import com.bookMovies.model.Seats;
 import com.bookMovies.repository.SeatsRepository;
@@ -13,9 +15,14 @@ import java.util.List;
 public class SeatsServiceImpl implements SeatsService{
     @Autowired
     private SeatsRepository repository;
+    @Autowired
+    private TheatreServiceFeign theatreServiceFeign;
 
     @Override
-    public Seats addSeats(Seats seats) {
+    public Seats addSeats(Seats seats) throws TheatreIdDoesNotExistException {
+        if(theatreServiceFeign.isIdExist(seats.getTheatreId())){
+            throw new TheatreIdDoesNotExistException("No such theatre ID exist");
+        }
         return repository.save(seats);
     }
 
@@ -32,10 +39,9 @@ public class SeatsServiceImpl implements SeatsService{
     }
 
     @Override
-    public List<SeatsRequest> getSeatsByTheatreIdAndScreenNumber(Long theatreId, int screenNumber)
-                    throws WrongPairOfTheatreIdAndScreenNumberException{
+    public List<SeatsRequest> getSeatsByTheatreIdAndScreenNumber(Long theatreId, int screenNumber){
         if(!repository.existsByTheatreIdAndScreenNumber(theatreId,screenNumber)){
-            throw new WrongPairOfTheatreIdAndScreenNumberException("Theatre ID and screen number doesn't match");
+            return null;
         }
         return repository.getSeatsByTheatreIdAndScreenNumber(theatreId,screenNumber);
     }

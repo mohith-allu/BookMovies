@@ -40,4 +40,9 @@ public class MoviesServiceImpl implements MoviesService {
     public List<Movies> getAllMovies() {
         return repository.findAll();
     }
+
+    @Override
+    public boolean isIdExist(Long id) {
+        return repository.findById(id).isEmpty();
+    }
 }

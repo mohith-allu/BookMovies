@@ -39,4 +39,9 @@ public class TheatreServiceImpl implements TheatreService{
     public List<Theatre> getAllTheatres() {
         return repository.findAll();
     }
+
+    @Override
+    public boolean isIdExist(Long id) {
+        return repository.findById(id).isEmpty();
+    }
 }

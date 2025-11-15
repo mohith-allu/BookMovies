@@ -10,4 +10,5 @@ public interface TheatreService {
     boolean removeTheatre(String name) throws TheatreNotFoundException;
     Theatre updatetheatre(Theatre theatre) throws TheatreNotFoundException;
     List<Theatre> getAllTheatres();
+    boolean isIdExist(Long id);
 }

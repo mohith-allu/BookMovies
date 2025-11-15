@@ -34,4 +34,9 @@ public class MoviesController {
     public List<Movies> getAllMovies(){
         return service.getAllMovies();
     }
+
+    @GetMapping("/exist/{id}")
+    public boolean isIdExist(@PathVariable("id") Long id){
+        return service.isIdExist(id);
+    }
 }

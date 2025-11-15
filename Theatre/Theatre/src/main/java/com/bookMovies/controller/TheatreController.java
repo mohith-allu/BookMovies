@@ -35,4 +35,9 @@ public class TheatreController {
         return service.getAllTheatres();
     }
 
+    @GetMapping("/exists/{id}")
+    public boolean isIdExist(@PathVariable("id") Long id){
+        return service.isIdExist(id);
+    }
+
 }

@@ -1,5 +1,8 @@
 package com.bookMovies.controller;
 
+import com.bookMovies.exception.MovieIdDoesNotExistException;
+import com.bookMovies.exception.TheatreIdDoesNotExistException;
+import com.bookMovies.exception.WrongPairOfTheatreIdAndScreenNumberException;
 import com.bookMovies.model.Shows;
 import com.bookMovies.service.ShowsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +18,8 @@ public class ShowsController {
     private ShowsService service;
 
     @PostMapping("/addShow")
-    public Shows addShow(@RequestBody Shows show){
+    public Shows addShow(@RequestBody Shows show) throws MovieIdDoesNotExistException,
+                    TheatreIdDoesNotExistException, WrongPairOfTheatreIdAndScreenNumberException {
         return service.addShows(show);
     }
 }

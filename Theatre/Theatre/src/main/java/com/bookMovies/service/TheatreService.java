@@ -8,5 +8,6 @@ import java.util.List;
 public interface TheatreService {
     Theatre addTheatre(Theatre theatre);
     boolean removeTheatre(String name) throws TheatreNotFoundException;
+    Theatre updatetheatre(Theatre theatre) throws TheatreNotFoundException;
     List<Theatre> getAllTheatres();
 }

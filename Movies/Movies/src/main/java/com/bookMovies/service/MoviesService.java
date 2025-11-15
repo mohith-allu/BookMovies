@@ -9,5 +9,6 @@ public interface MoviesService {
 
     Movies addMovie(Movies movie);
     boolean removeMovie(String title) throws MoviesNotFoundException;
+    Movies updateMovie(Movies movie) throws MoviesNotFoundException;
     List<Movies> getAllMovies();
 }

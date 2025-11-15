@@ -17,7 +17,7 @@ public class Movies {
     private int duration;
     private Double rating=0.0;
     private String certificate;
-    private String langusge;
+    private String language;
 
     public Movies() {
     }
@@ -29,16 +29,16 @@ public class Movies {
         this.duration = duration;
         this.rating = rating;
         this.certificate = certificate;
-        this.langusge = langusge;
+        this.language = langusge;
     }
 
-    public Movies(String title, String genre, int duration, Double rating, String certificate, String langusge) {
+    public Movies(String title, String genre, int duration, Double rating, String certificate, String language) {
         this.title = title;
         this.genre = genre;
         this.duration = duration;
         this.rating = rating;
         this.certificate = certificate;
-        this.langusge = langusge;
+        this.language = language;
     }
 
     public Long getId() {
@@ -89,12 +89,12 @@ public class Movies {
         this.certificate = certificate;
     }
 
-    public String getLangusge() {
-        return langusge;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setLangusge(String langusge) {
-        this.langusge = langusge;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     @Override
@@ -106,7 +106,7 @@ public class Movies {
                 ", duration=" + duration +
                 ", rating=" + rating +
                 ", certificate='" + certificate + '\'' +
-                ", langusge='" + langusge + '\'' +
+                ", language='" + language + '\'' +
                 '}';
     }
 }

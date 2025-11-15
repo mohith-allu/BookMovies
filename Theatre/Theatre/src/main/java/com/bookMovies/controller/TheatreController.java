@@ -25,6 +25,11 @@ public class TheatreController {
         return service.removeTheatre(name.getName());
     }
 
+    @PutMapping("/updateTheatre")
+    public Theatre updateTheatre(@RequestBody Theatre theatre) throws TheatreNotFoundException{
+        return service.updatetheatre(theatre);
+    }
+
     @GetMapping("/listAllTheatres")
     public List<Theatre> getAllTheatres(){
         return service.getAllTheatres();

@@ -25,6 +25,11 @@ public class MoviesController {
         return service.removeMovie(title.getTitle());
     }
 
+    @PutMapping("/updateMovie")
+    public Movies updateMovie(@RequestBody Movies movie) throws MoviesNotFoundException{
+        return service.updateMovie(movie);
+    }
+
     @GetMapping("/listAllMovies")
     public List<Movies> getAllMovies(){
         return service.getAllMovies();

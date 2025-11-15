@@ -29,6 +29,14 @@ public class MoviesServiceImpl implements MoviesService {
     }
 
     @Override
+    public Movies updateMovie(Movies movie) throws MoviesNotFoundException{
+        if(repository.findById(movie.getId()).isEmpty()){
+            throw new MoviesNotFoundException("No movie with such id exist");
+        }
+        return repository.save(movie);
+    }
+
+    @Override
     public List<Movies> getAllMovies() {
         return repository.findAll();
     }

@@ -28,6 +28,14 @@ public class TheatreServiceImpl implements TheatreService{
     }
 
     @Override
+    public Theatre updatetheatre(Theatre theatre) throws TheatreNotFoundException {
+        if(repository.findById(theatre.getId()).isEmpty()){
+            throw new TheatreNotFoundException("Theatre with such id doesn't exist");
+        }
+        return repository.save(theatre);
+    }
+
+    @Override
     public List<Theatre> getAllTheatres() {
         return repository.findAll();
     }

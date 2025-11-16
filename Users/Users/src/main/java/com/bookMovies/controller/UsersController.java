@@ -1,6 +1,7 @@
 package com.bookMovies.controller;
 
 import com.bookMovies.exception.EmailAlreadyExistException;
+import com.bookMovies.exception.PasswordNotStrongException;
 import com.bookMovies.exception.WrongCredentialsExceptions;
 import com.bookMovies.model.Users;
 import com.bookMovies.service.UserService;
@@ -15,7 +16,7 @@ public class UsersController {
     private UserService service;
 
     @PostMapping("/register")
-    public Users registerUser(@RequestBody Users user) throws EmailAlreadyExistException{
+    public Users registerUser(@RequestBody Users user) throws EmailAlreadyExistException, PasswordNotStrongException {
         return service.registerUser(user);
     }
 

@@ -23,4 +23,10 @@ public class UsersExceptionHandler extends ResponseEntityExceptionHandler {
         Error error=new Error(HttpStatus.NOT_FOUND, exception.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
+
+    @ExceptionHandler(PasswordNotStrongException.class)
+    public ResponseEntity<Error> passwordNotString(PasswordNotStrongException exception,WebRequest request){
+        Error error=new Error(HttpStatus.UNPROCESSABLE_ENTITY, exception.getMessage());
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(error);
+    }
 }

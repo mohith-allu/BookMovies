@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/BookingHistory/BookingHistory/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Eureka-Server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Gateway-Service/Gateway-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Gateway-Service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Movies/Movies/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Seats/Seats/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ShowSeats/ShowSeats/src/main/java" charset="UTF-8" />

@@ -10,6 +10,7 @@
         <module name="Theatre" />
         <module name="BookingHistory" />
         <module name="Eureka-Server" />
+        <module name="Gateway-Service" />
         <module name="Users" />
         <module name="Movies" />
         <module name="Seats" />
@@ -23,6 +24,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="BookingHistory" options="-parameters" />
       <module name="Eureka-Server" options="-parameters" />
+      <module name="Gateway-Service" options="-parameters" />
       <module name="Movies" options="-parameters" />
       <module name="Seats" options="-parameters" />
       <module name="ShowSeats" options="-parameters" />

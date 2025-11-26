@@ -7,6 +7,9 @@ import com.bookMovies.model.Users;
 import com.bookMovies.repository.UsersRepository;
 import com.bookMovies.validator.PasswordValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -18,12 +21,30 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private BCryptPasswordEncoder encoder;
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtService jwtService;
+
+//    @Override
+//    public boolean loginUser(Users user) throws WrongCredentialsExceptions {
+//
+//        if(!repository.existsByEmailAndPassword(user.getEmail(), user.getPassword())){
+//            throw new WrongCredentialsExceptions("Entered credentials are wrong");
+//        }
+//        return true;
+//    }
+//
     @Override
-    public boolean loginUser(Users user) throws WrongCredentialsExceptions {
-        if(!repository.existsByEmailAndPassword(user.getEmail(), user.getPassword())){
+    public String loginUser(Users user) throws WrongCredentialsExceptions {
+
+        Authentication authentication=authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword()));
+        if(!authentication.isAuthenticated()){
             throw new WrongCredentialsExceptions("Entered credentials are wrong");
         }
-        return true;
+        return jwtService.generateToken(user);
     }
 
     @Override
@@ -44,7 +65,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean deleteUser(Users user) throws WrongCredentialsExceptions {
-        if(!repository.existsByEmailAndPassword(user.getEmail(), user.getPassword())){
+        Authentication authentication=authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(),user.getPassword()));
+        if(!authentication.isAuthenticated()){
             throw new WrongCredentialsExceptions("Entered credentials are wrong");
         }
         repository.deleteById(repository.findIdByEmail(user.getEmail()));

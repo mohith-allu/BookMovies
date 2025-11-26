@@ -6,7 +6,7 @@ import com.bookMovies.exception.WrongCredentialsExceptions;
 import com.bookMovies.model.Users;
 
 public interface UserService {
-    boolean loginUser(Users user) throws WrongCredentialsExceptions;
+    String loginUser(Users user) throws WrongCredentialsExceptions;
     Users registerUser(Users user) throws EmailAlreadyExistException, PasswordNotStrongException;
     boolean deleteUser(Users user) throws WrongCredentialsExceptions;
 }

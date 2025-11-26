@@ -21,7 +21,7 @@ public class UsersController {
     }
 
     @GetMapping("/login")
-    public boolean loginUser(@RequestBody Users user) throws WrongCredentialsExceptions{
+    public String loginUser(@RequestBody Users user) throws WrongCredentialsExceptions{
         return service.loginUser(user);
     }
 

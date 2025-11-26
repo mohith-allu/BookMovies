@@ -7,12 +7,16 @@ import com.bookMovies.model.Users;
 import com.bookMovies.repository.UsersRepository;
 import com.bookMovies.validator.PasswordValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UsersRepository repository;
+
+    @Autowired
+    private BCryptPasswordEncoder encoder;
 
     @Override
     public boolean loginUser(Users user) throws WrongCredentialsExceptions {
@@ -34,7 +38,7 @@ public class UserServiceImpl implements UserService {
                                                  "It must contain atleast one numerical" +
                                                  "It must contain atleast one special character");
         }
-
+        user.setPassword(encoder.encode(user.getPassword()));
         return repository.save(user);
     }
 

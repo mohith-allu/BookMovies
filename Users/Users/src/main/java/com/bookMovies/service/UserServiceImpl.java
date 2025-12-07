@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
         if(!authentication.isAuthenticated()){
             throw new WrongCredentialsExceptions("Entered credentials are wrong");
         }
-        return jwtService.generateToken(user);
+        return jwtService.generateToken(repository.findByEmail(user.getEmail()));
     }
 
     @Override

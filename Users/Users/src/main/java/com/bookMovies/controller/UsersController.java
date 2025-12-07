@@ -4,8 +4,12 @@ import com.bookMovies.exception.EmailAlreadyExistException;
 import com.bookMovies.exception.PasswordNotStrongException;
 import com.bookMovies.exception.WrongCredentialsExceptions;
 import com.bookMovies.model.Users;
+import com.bookMovies.service.JwtService;
 import com.bookMovies.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

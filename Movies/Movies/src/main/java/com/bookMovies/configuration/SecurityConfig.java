@@ -26,7 +26,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(
                         request -> request
-                                .requestMatchers("/api/movies/listAllTheatres").permitAll()
+                                .requestMatchers("/api/movies/listAllTheatres","/api/movies/getDetails/*").permitAll()
                                 .requestMatchers("/api/movies/exist/*").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/api/movies/addMovie").hasRole("Admin")
                                 .requestMatchers(HttpMethod.DELETE, "/api/movies/deleteMovie").hasRole("Admin")

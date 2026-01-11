@@ -73,4 +73,9 @@ public class UserServiceImpl implements UserService {
         repository.deleteById(repository.findIdByEmail(user.getEmail()));
         return true;
     }
+
+    @Override
+    public Long getUserId(String email) {
+        return repository.findIdByEmail(email);
+    }
 }

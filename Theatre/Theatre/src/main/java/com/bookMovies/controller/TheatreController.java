@@ -1,5 +1,6 @@
 package com.bookMovies.controller;
 
+import com.bookMovies.dto.TheatreDetails;
 import com.bookMovies.dto.TheatreName;
 import com.bookMovies.exception.TheatreNotFoundException;
 import com.bookMovies.model.Theatre;
@@ -38,6 +39,11 @@ public class TheatreController {
     @GetMapping("/exists/{id}")
     public boolean isIdExist(@PathVariable("id") Long id){
         return service.isIdExist(id);
+    }
+
+    @GetMapping("/getDetails/{id}")
+    public TheatreDetails details(@PathVariable("id") Long id){
+        return service.details(id);
     }
 
 }

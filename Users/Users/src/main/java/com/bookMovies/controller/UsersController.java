@@ -34,4 +34,9 @@ public class UsersController {
         return service.deleteUser(user);
     }
 
+    @GetMapping("/getId/{email}")
+    public Long getUserId(@PathVariable("email") String email){
+        return service.getUserId(email);
+    }
+
 }

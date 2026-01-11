@@ -1,5 +1,6 @@
 package com.bookMovies.service;
 
+import com.bookMovies.dto.MovieDetails;
 import com.bookMovies.exception.MoviesNotFoundException;
 import com.bookMovies.model.Movies;
 import com.bookMovies.repository.MoviesRepository;
@@ -44,5 +45,10 @@ public class MoviesServiceImpl implements MoviesService {
     @Override
     public boolean isIdExist(Long id) {
         return repository.findById(id).isEmpty();
+    }
+
+    @Override
+    public MovieDetails details(Long id) {
+        return repository.getTitleAndCertificateById(id);
     }
 }

@@ -1,5 +1,6 @@
 package com.bookMovies.service;
 
+import com.bookMovies.dto.MovieDetails;
 import com.bookMovies.exception.MoviesNotFoundException;
 import com.bookMovies.model.Movies;
 
@@ -12,4 +13,5 @@ public interface MoviesService {
     Movies updateMovie(Movies movie) throws MoviesNotFoundException;
     List<Movies> getAllMovies();
     boolean isIdExist(Long id);
+    MovieDetails details(Long id);
 }

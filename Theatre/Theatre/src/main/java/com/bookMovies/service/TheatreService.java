@@ -1,5 +1,7 @@
 package com.bookMovies.service;
 
+
+import com.bookMovies.dto.TheatreDetails;
 import com.bookMovies.exception.TheatreNotFoundException;
 import com.bookMovies.model.Theatre;
 
@@ -11,4 +13,5 @@ public interface TheatreService {
     Theatre updatetheatre(Theatre theatre) throws TheatreNotFoundException;
     List<Theatre> getAllTheatres();
     boolean isIdExist(Long id);
+    TheatreDetails details(Long id);
 }

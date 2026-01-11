@@ -9,4 +9,5 @@ public interface UserService {
     String loginUser(Users user) throws WrongCredentialsExceptions;
     Users registerUser(Users user) throws EmailAlreadyExistException, PasswordNotStrongException;
     boolean deleteUser(Users user) throws WrongCredentialsExceptions;
+    Long getUserId(String email);
 }

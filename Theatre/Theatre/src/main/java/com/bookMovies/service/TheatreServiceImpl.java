@@ -1,5 +1,6 @@
 package com.bookMovies.service;
 
+import com.bookMovies.dto.TheatreDetails;
 import com.bookMovies.exception.TheatreNotFoundException;
 import com.bookMovies.model.Theatre;
 import com.bookMovies.repository.TheatreRepository;
@@ -43,5 +44,10 @@ public class TheatreServiceImpl implements TheatreService{
     @Override
     public boolean isIdExist(Long id) {
         return repository.findById(id).isEmpty();
+    }
+
+    @Override
+    public TheatreDetails details(Long id) {
+        return repository.getNameAndAddressById(id);
     }
 }
